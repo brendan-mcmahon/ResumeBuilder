@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.sidebar{
+    padding-top: 5px;
+    align-self: flex-start;
+    text-align: end;
+}

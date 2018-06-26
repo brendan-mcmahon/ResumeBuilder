@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+	font-family: "Dosis";
+	src: url("assets/Dosis-Regular.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url('assets/OpenSans-Regular.ttf')
+}
+
+@font-face {
+	font-family: "OpenSans-Light";
+	src: url("assets/OpenSans-Light.ttf");
+}
+
+html{
+	width: 8.5in;
+	height: 11in;
+	border: solid red 1px;
+}
+
+body{
+	margin: 5%;
+}
+
+h1{
+	font-family: "Dosis";
+	font-size: 26px;
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	font-family: "OpenSans-Light";
+	font-size: 20px;
+	color: grey;
+	margin: 0;
+	padding: 0;
+}
+
+p{
+	font-family: "OpenSans";
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+ul{
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+hr{
+	color: lightgray;
+}
+
+.main{
+	width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.name{
+    font-size: 30px;
+}
+
+.sidebar{
+    padding-top: 5px;
+    align-self: flex-start;
+    text-align: end;
+}

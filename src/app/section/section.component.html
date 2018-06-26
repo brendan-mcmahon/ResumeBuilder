@@ -1,0 +1,12 @@
+<div>
+    <h1>{{sectionData.title}}</h1>
+    <div class="columns">
+        <div class="column" *ngFor="let subsectionList of subsectionLists">
+            <app-subsection 
+                *ngFor="let subsection of subsectionList" 
+                [subsectionData]="subsection">
+            </app-subsection>
+        </div>
+    </div>
+</div>
+<hr />

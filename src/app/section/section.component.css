@@ -1,0 +1,13 @@
+.columns{
+    display: flex;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+app-subsection{
+    margin: 15px;
+}

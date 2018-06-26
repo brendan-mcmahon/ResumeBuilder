@@ -1,0 +1,14 @@
+<div class="main">
+  <div>
+    <h2>{{subsectionData.title}}</h2>
+    <p>{{subsectionData.subtitle}}</p>
+
+    <ul *ngFor="let item of subsectionData.items">
+      <li><p>{{item}}</p></li>
+    </ul>
+</div>
+
+  <div class="sidebar">
+    <p>{{subsectionData.sidebar}}</p>
+  </div>
+</div>
