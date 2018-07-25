@@ -1,3 +1,14 @@
-<app-header [headerData]="resume.header"></app-header>
-<app-section *ngFor="let section of resume.sections" [sectionData]="section"></app-section>
-<app-footer [footerData]="resume.footer"></app-footer>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.2.4/balloon.min.css">
+
+<div class="app-container">
+    <div [hidden]="!fileDialogOpen" id="saved-files">
+        <app-saved-files 
+            (closeFileClicked)="closeFileDialog($event)" 
+            (openFileEmitter)="openFile($event)">
+        </app-saved-files>
+    </div>
+    <div id="builder">
+        <app-builder [existingFileName]="fileName" (openFileClicked)="openFileDialog($event)"></app-builder>
+    </div>
+</div>

@@ -1,0 +1,209 @@
+<div id="app-container" [ngClass]="{'app-container': !printMode, 'app-container-print-mode': printMode}">
+  <form [hidden]="printMode" id="builder" [formGroup]="resumeForm">
+    <h1>Fill in the fields to build your resume!</h1>
+    <h2 [hidden]="existingFileName == '' || existingFileName == null">Current working file: {{existingFileName}}</h2>
+    <h2 [hidden]="!existingFileName == '' || !existingFileName == null">Your work has not been saved.</h2>
+    <div class="buttons">
+      <button 
+        data-balloon="Save" 
+        data-balloon-pos="up"
+        [swal]="saveSwal"
+        class="btn btn-success"><i class="fas fa-save"></i></button>
+
+      <swal
+        #saveSwal
+        title="Just a heads up"
+        text="The information you're submitting will be saved in local storage on your machine. Don't use this if you're on a public computer. Enter a file name below."
+        type="warning"
+        input="text"
+        [showCancelButton]="true"
+        [focusCancel]="false"
+        (confirm)="saveResume($event)">
+      </swal>
+
+      <button data-balloon="Open a Saved File" data-balloon-pos="up" class="btn btn-primary" (click)="openFile()"><i class="far fa-folder-open"></i></button>
+
+      <button data-balloon="Print" data-balloon-pos="up" class="btn btn-default" (click)="enterPrintMode()"><i class="fas fa-print"></i></button>
+
+      <button data-balloon="Clear All Fields" data-balloon-pos="up" class="btn btn-warning" (click)="clearFields()"><i class="fas fa-eraser"></i></button>
+
+      <button data-balloon="Open Demo Resume" data-balloon-pos="up" class="btn btn-default" (click)="loadDemo()">Demo</button>
+
+      <button [swal]="deleteSwal" data-balloon="Delete" data-balloon-pos="up" style="margin-left: auto" [disabled]="!deleteButtonEnabled" class="btn btn-danger"><i class="fas fa-trash" aria-hidden="true"></i></button>
+    
+      <swal
+        #deleteSwal
+        title="Are you sure you want to delete this?"
+        text="You will not be able to recover any data once you've deleted it."
+        type="error"
+        [showCancelButton]="true"
+        [focusCancel]="true"
+        (confirm)="deleteResume()">
+      </swal>
+
+    </div>
+
+    <div id="header" formGroupName="header" class="well well-lg">
+      <div class="form-group">
+
+        <h2>Header:</h2>
+
+        <label class="center-block">Your Name:
+          <input class="form-control" formControlName="title" placeholder="ex: John Smith">
+        </label>
+
+        <label class="center-block">Your Title:
+          <input class="form-control" formControlName="subtitle" placeholder="ex: Associate Lightbulb Manager">
+        </label>
+      <label class="center-block">Your Contact Info:
+        <div formArrayName="contactInfo" class="nested-1 well well-leg">
+          <div *ngFor="let item of getContactInfo(resumeForm); let h=index" [formGroupName]="h">
+            <div class="flex-input">      
+              <input formControlName="item" class="form-control stack" placeholder="ex: Mobile: 867.5309">
+              <button (click)="moveContactInfo(h, -1)" [hidden]="h == 0" class="clear-button"><i class="fas fa-caret-up"></i></button>
+              <button (click)="moveContactInfo(h, 1)" [hidden]="h == getContactInfo(resumeForm).length - 1" class="clear-button"><i class="fas fa-caret-down"></i></button>
+              <div class="remove-button-container" [hidden]="h == 0">
+                <button (click)="removeContactInfo(h)"
+                        type="button"
+                        class="fa fa-minus-circle fa-lg remove-button clear-button">
+                </button>
+              </div>
+            </div>
+            <div [hidden]="h != getContactInfo(resumeForm).length - 1">
+              <button class="fa fa-plus-circle fa-lg add-button clear-button" 
+                      (click)="addContactInfo()">
+              </button>
+            </div>
+          </div>
+        </div>
+      </label>
+      </div>
+    </div>
+
+    <div id="sections" formArrayName="sections" class="well well-lg">
+      <h2>Sections:</h2>
+      <div *ngFor="let section of getSections(resumeForm); let i = index"  [formGroupName]="i">
+          <div class="form-group">
+
+            <div class="subheader">
+              <h4>Section {{i + 1}}</h4>
+              <button (click)="moveSection(i, -1)" [hidden]="i == 0" class="clear-button"><i class="fas fa-caret-up"></i></button>
+              <button (click)="moveSection(i, 1)" [hidden]="i == getSections(resumeForm).length - 1" class="clear-button"><i class="fas fa-caret-down"></i></button>
+              
+              <!-- minus button -->
+              <div class="remove-button-container" [hidden]="i == 0">
+                <button (click)="removeSection(i)"
+                        type="button"
+                        class="fa fa-minus-circle fa-lg remove-button clear-button">
+                </button>
+              </div>
+            </div>
+          
+          <label class="center-block">Title:
+            <input class="form-control" formControlName="title" placeholder="ex: Education">
+          </label>
+
+            <label class="center-block">Subsections:
+              <div formArrayName="subsections">
+                <div class="nested-1 well well-lg" *ngFor="let subsection of getSubsections(section); let j = index" [formGroupName]="j">
+
+                <div class="subheader">
+                  <h4>Entry {{j + 1}}</h4>
+                  <button (click)="moveSubsection(i, j, -1)" *ngIf="j != 0" class="clear-button"><i class="fas fa-caret-up"></i></button>
+                  <button (click)="moveSubsection(i, j, 1)" *ngIf="j != getSubsections(section).length - 1" class="clear-button"><i class="fas fa-caret-down"></i></button>
+
+                  <!-- minus button -->
+                  <div class="remove-button-container" [hidden]="j == 0">
+                    <button (click)="removeSubsection(i, j)"
+                            type="button"
+                            class="fa fa-minus-circle fa-lg remove-button clear-button">
+                    </button>
+                  </div>
+                </div>
+
+                  <label class="center-block">Title:
+                    <input class="form-control" formControlName="title" placeholder="ex: Butler University">
+                  </label>
+
+
+                  <label class="center-block">Subtitle:
+                    <input class="form-control" formControlName="subtitle" placeholder="ex: Bachelor of Music">
+                  </label>
+
+                  <div formArrayName="items" class="nested-2 well well-leg">
+                    <label class="center-block">Details:
+                      <div *ngFor="let item of getSubsectionItems(subsection); let k=index" [formGroupName]="k">
+                        <div class="flex-input">
+                          <input formControlName="item" class="form-control stack" placeholder="ex: Honors and Distinctions...">
+                          <button (click)="moveDetail(i, j, k, -1)" *ngIf="k != 0" class="clear-button"><i class="fas fa-caret-up"></i></button>
+                          <button (click)="moveDetail(i, j, k, 1)" *ngIf="k != getSubsectionItems(subsection).length - 1" class="clear-button"><i class="fas fa-caret-down"></i></button>
+                          <div class="remove-button-container" [hidden]="k == 0">
+                              <button (click)="removeDetail(i, j, k)"
+                                      type="button"
+                                      class="fa fa-minus-circle fa-lg remove-button clear-button">
+                              </button>
+                            </div>
+                        </div>                    
+                          <div [hidden]="k != getSubsectionItems(subsection).length - 1"> 
+                            <button class="fa fa-plus-circle fa-lg add-button clear-button" (click)="addDetail(i, j)"></button>
+                          </div>
+                      </div>
+                    </label>
+                  </div>
+
+                  <label class="center-block">Sidebar:
+                    <input class="form-control" formControlName="sidebar" placeholder="ex: graduated 2013">
+                  </label>
+
+                  <div [hidden]="j != getSubsections(section).length - 1">
+                    <button class="fa fa-plus-circle fa-lg add-button clear-button" (click)="addSubsection(i)"></button>
+                  </div>
+
+                </div>
+                
+              </div>
+            </label>
+
+          
+          </div>
+          <div [hidden]="i != getSections(resumeForm).length - 1">
+            <button class="fa fa-plus-circle fa-lg add-button clear-button" (click)="addSection()"></button>
+          </div>
+      </div>
+    </div>
+    
+    <div id="footer" formArrayName="footer" class="well well-lg">
+      <h2>Footer:</h2>
+      <div *ngFor="let item of getFooter(resumeForm); let l = index"  [formGroupName]="l">
+          <div class="form-group">
+            <label class="center-block">Entry {{l+1}}:
+              <div class="flex-input">
+                <input class="form-control" formControlName="item" placeholder="ex: See attached cover letter">
+                <button (click)="moveFooterItem(l, -1)" *ngIf="l != 0" class="clear-button"><i class="fas fa-caret-up"></i></button>
+                <button (click)="moveFooterItem(l, 1)" *ngIf="l != getFooter(resumeForm).length - 1" class="clear-button"><i class="fas fa-caret-down"></i></button>
+                <button class="remove-button-container" (click)="removeFooter(l)"
+                        type="button"
+                        class="fa fa-minus-circle fa-lg remove-button clear-button">
+                </button>
+              </div>
+            </label>
+          </div>
+          <div [hidden]="l != getFooter(resumeForm).length - 1">
+            <button class="fa fa-plus-circle fa-lg add-button clear-button" (click)="addFooter()"></button>
+          </div>
+      </div>
+      <div [hidden]="getFooter(resumeForm).length != 0">
+        <button class="fa fa-plus-circle fa-lg add-button clear-button" (click)="addFooter()"></button>
+      </div>
+    </div>
+  </form>
+
+  <div id="resume" [ngClass]="{'resume': !printMode, 'resume-print-mode': printMode}" (mouseover) ="hoverResume($event)">
+      <app-header [headerData]="resumeForm.value.header"></app-header>
+      <app-section *ngFor="let section of resumeForm.value.sections" [sectionData]="section"></app-section>
+      <app-footer class="bottom" *ngFor="let footer of resumeForm.value.footer" [footerData]="footer"></app-footer>
+  </div>
+
+  <button (mouseout)="leaveResume($event)" (click)="leavePrintMode()" class="displayMessage clear-button" [hidden]="!displayPrintModeMessage"><i class="fas fa-pencil-alt fa-5x"></i></button>
+</div>
+<!-- <pre>Form value: {{ resumeForm.value | json }}</pre>  -->

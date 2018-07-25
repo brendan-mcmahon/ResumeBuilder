@@ -1,0 +1,19 @@
+.list-container{
+    margin: 20px;
+}
+
+.app-list-item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.clickable-item{
+    border: none;
+    border-radius: 5px;
+    background: none;
+    padding: 5px;
+}
+
+.clickable-item:hover{
+    box-shadow: 0px 0px 5px grey;
+}

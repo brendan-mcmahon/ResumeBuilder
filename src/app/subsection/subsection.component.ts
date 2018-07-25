@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Subsection } from '../../resume-data';
 
 @Component({
@@ -6,13 +6,6 @@ import { Subsection } from '../../resume-data';
   templateUrl: './subsection.component.html',
   styleUrls: ['./subsection.component.css']
 })
-export class SubsectionComponent implements OnInit {
-
+export class SubsectionComponent {
   @Input() subsectionData: Subsection;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

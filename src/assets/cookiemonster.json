@@ -1,0 +1,121 @@
+{
+    "header": {
+        "title": "Sidney Muppet",
+        "subtitle": "Puppet Actor, Pastry Chef",
+        "contactInfo": [
+            {
+                "item": "212.595.3456"
+            },
+            {
+                "item": "One Lincoln Plaza, New York, NY 10023 USA"
+            }
+        ]
+    },
+    "sections": [
+        {
+            "title": "Television Appearances",
+            "subsections": [
+                {
+                    "title": "Sesame Street",
+                    "subtitle": "Cookie Monster",
+                    "items": [
+                        {
+                            "item": "Video Games (Voice)"
+                        },
+                        {
+                            "item": "Merchandising"
+                        }
+                    ],
+                    "sidebar": "1969 - Present"
+                },
+                {
+                    "title": "General Foods Commercial",
+                    "subtitle": "The Wheel-Stealer",
+                    "items": [
+                        {
+                            "item": ""
+                        }
+                    ],
+                    "sidebar": "1966"
+                },
+                {
+                    "title": "The Coffee Break Machine",
+                    "subtitle": "Hungry Monster",
+                    "items": [
+                        {
+                            "item": "Used for IBM training purposes"
+                        },
+                        {
+                            "item": "Premiered on Ed Sullivan"
+                        }
+                    ],
+                    "sidebar": "1967"
+                },
+                {
+                    "title": "Munchos (Frito-Lay) Commercial",
+                    "subtitle": "Arnold",
+                    "items": [
+                        {
+                            "item": ""
+                        }
+                    ],
+                    "sidebar": "1969"
+                }
+            ]
+        },
+        {
+            "title": "Work Experience",
+            "subsections": [
+                {
+                    "title": "Furchester Hotel",
+                    "subtitle": "Head Waiter / Room Service",
+                    "items": [
+                        {
+                            "item": "Cookie Inspection"
+                        },
+                        {
+                            "item": "Customer Satisfaction"
+                        },
+                        {
+                            "item": "Problem-Solving Consultation"
+                        }
+                    ],
+                    "sidebar": ""
+                }
+            ]
+        },
+        {
+            "title": "Education",
+            "subsections": [
+                {
+                    "title": "University of Southern California",
+                    "subtitle": "MFA - Acting",
+                    "items": [
+                        {
+                            "item": "Student Director - Waiting for Godot"
+                        },
+                        {
+                            "item": "Male Lead - Death of a Salesman"
+                        }
+                    ],
+                    "sidebar": "Graduated 1967"
+                },
+                {
+                    "title": "Culinary Institute of America - Hyde Park",
+                    "subtitle": "Associate of Baking and Pastry Arts",
+                    "items": [
+                        {
+                            "item": ""
+                        }
+                    ],
+                    "sidebar": "Graduated 1963"
+                }
+            ]
+        }
+    ],
+    "footer": [
+        {
+            "item": "*Headshots available upon request"
+        }
+    ]
+}

@@ -3,4 +3,5 @@ p{
     font-style: italic;
     margin-top: 30px;
     text-align: end;
+    align-self: flex-end;
 }

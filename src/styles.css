@@ -1,22 +1,23 @@
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
 @font-face {
-	font-family: "Dosis";
-	src: url("assets/Dosis-Regular.ttf");
+	font-family: "Header";
+	src: url("assets/Raleway-Bold.ttf");
 }
 
 @font-face {
-    font-family: "OpenSans";
-    src: url('assets/OpenSans-Regular.ttf')
+	font-family: "Subheader";
+	src: url("assets/Raleway-Regular.ttf");
 }
 
 @font-face {
-	font-family: "OpenSans-Light";
-	src: url("assets/OpenSans-Light.ttf");
+    font-family: "Paragraph";
+    src: url('assets/Raleway-Light.ttf')
 }
 
 html{
 	width: 8.5in;
 	height: 11in;
-	border: solid red 1px;
 }
 
 body{
@@ -24,14 +25,14 @@ body{
 }
 
 h1{
-	font-family: "Dosis";
+	font-family: "Header";
 	font-size: 26px;
 	margin: 0;
 	padding: 0;
 }
 
 h2{
-	font-family: "OpenSans-Light";
+	font-family: "Subheader";
 	font-size: 20px;
 	color: grey;
 	margin: 0;
@@ -39,7 +40,7 @@ h2{
 }
 
 p{
-	font-family: "OpenSans";
+	font-family: "Paragraph";
 	font-size: 14px;
 	margin-top: 0;
 	margin-bottom: 0;

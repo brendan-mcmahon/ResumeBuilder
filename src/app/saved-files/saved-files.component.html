@@ -1,0 +1,8 @@
+<div class="list-container card">
+  <h2>Your Saved Files: </h2>
+  <hr />
+  <ul class="list-group list-group-flush">
+    <li class="app-list-item" *ngFor="let file of savedFiles"><button class="clickable-item" (click)="openFile(file.name)">{{file.name}}</button></li>
+  </ul>
+  <button class="btn btn-danger" (click)="closeDialog()">Cancel</button>
+</div>

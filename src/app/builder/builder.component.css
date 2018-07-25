@@ -1,0 +1,132 @@
+.app-container{
+    display: grid;
+    grid-template-columns: 9fr 1fr 10fr;
+    width: 95vw;
+}
+
+.app-container-print-mode{
+    display: grid;
+    grid-template-columns: 1fr;
+    width:95vw;
+}
+
+#builder{
+    grid-column: 1;
+}
+
+.resume{
+    grid-column: 3;
+    width: 8.5in;
+    height: 11in;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-print-mode{
+    grid-column: 1;
+    grid-row: 1;
+    width: 8.5in;
+    height: 11in;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.flex-input{
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+/* button{
+    border: none;
+    background: none;
+} */
+
+.clear-button{
+    border: none;
+    background: none;
+}
+
+.remove-button-container{
+    align-self: center;
+}
+
+.remove-button{
+    color: rgb(196, 5, 5);
+}
+
+.remove-button:hover{
+    color: rgb(116, 0, 0);
+}
+
+.add-button{
+    margin-top: 15px;
+    color: green;
+}
+
+.add-button:hover{
+    color: rgb(0, 46, 0);
+}
+
+.buttons{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.buttons button{
+    margin-right: 5px;
+}
+
+.subheader{
+    display: flex;
+}
+
+.subheader div button{
+    margin: 0;
+}
+
+.nested-1{
+    background: #dcdbdb;
+}
+
+.nested-2{
+    background: #bababa;
+    border: none;
+}
+
+.bottom{
+    margin-top: auto;
+}
+
+.displayMessage{
+    grid-column: 1;
+    grid-row: 1;
+    width: 8.5in;
+    height: 11in;
+    z-index: 2;
+    position: sticky;
+    top: 20px;
+    background-color: rgba(0, 0, 0, .25);
+    color: white;
+    justify-self: center;
+}
+
+.displayMessage h1{
+    background-color: #555;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.print-button:hover{
+    background-color: #444;
+    color: #cdcdcd;
+}

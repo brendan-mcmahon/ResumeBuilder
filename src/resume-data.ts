@@ -1,13 +1,13 @@
 export class Resume {
     header: Header;
     sections: Section[];
-    footer: Footer;
+    footer: Footer[];
   }
 
 export class Header {
     title: string;
     subtitle: string;
-    sidebar: string[];
+    contactInfo: string[];
 }
 
 export class Section {
@@ -23,5 +23,15 @@ export class Subsection {
 }
 
 export class Footer {
-    items: string[];
+    items: string;
+}
+
+export class SaveFile {
+    constructor(_name, _resume) {
+        this.name = _name;
+        this.resume = _resume;
+    }
+
+    name: string;
+    resume: Resume;
 }
