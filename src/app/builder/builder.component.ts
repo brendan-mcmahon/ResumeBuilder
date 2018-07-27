@@ -371,4 +371,13 @@ export class BuilderComponent implements OnInit, OnChanges {
     control.at(index).setValue(otherItem);
     control.at(index + spaces).setValue(item);
   }
+
+  //   private moveControl(control: FormArray, index: number, spaces: number) {
+  //   const item = control.at(index);
+  //   const otherItem = control.at(index + spaces);
+  //   control.at(index).reset();
+  //   control.at(index + spaces).reset();
+  //   control.push(otherItem);
+  //   control.push(item);
+  // }
 }
