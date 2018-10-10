@@ -2,7 +2,7 @@
   <form [hidden]="printMode" id="builder" [formGroup]="resumeForm">
     <h1>Fill in the fields to build your resume!</h1>
     <h2 [hidden]="existingFileName == '' || existingFileName == null">Current working file: {{existingFileName}}</h2>
-    <h2 [hidden]="!existingFileName == '' || !existingFileName == null">Your work has not been saved.</h2>
+    <h2 [hidden]="!((existingFileName == '') || (!existingFileName == null))">Your work has not been saved.</h2>
     <div class="buttons">
       <button 
         data-balloon="Save" 

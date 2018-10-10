@@ -4,11 +4,11 @@
 <div class="app-container">
     <div [hidden]="!fileDialogOpen" id="saved-files">
         <app-saved-files 
-            (closeFileClicked)="closeFileDialog($event)" 
+            (closeFileClicked)="closeFileDialog()" 
             (openFileEmitter)="openFile($event)">
         </app-saved-files>
     </div>
     <div id="builder">
-        <app-builder [existingFileName]="fileName" (openFileClicked)="openFileDialog($event)"></app-builder>
+        <app-builder [existingFileName]="fileName" (openFileClicked)="openFileDialog()"></app-builder>
     </div>
 </div>
