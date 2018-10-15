@@ -3,7 +3,6 @@ import { Resume, Header } from '../resume-data';
 import { BuilderComponent } from './builder/builder.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SavedFilesComponent } from './saved-files/saved-files.component';
-import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +11,6 @@ import { Meta } from '@angular/platform-browser';
 })
 export class AppComponent {
 
-  constructor(private meta: Meta) {
-    this.meta.addTag({ httpEquiv: 'Content-Security-Policy', content: "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com ",  });
-  }
   fileDialogOpen = false;
   fileName: string = null;
   @ViewChild(SavedFilesComponent)
