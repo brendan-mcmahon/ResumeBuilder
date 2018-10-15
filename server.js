@@ -12,7 +12,7 @@ app.listen(process.env.PORT || 8080);
 
 app.get('/*', (req,res) => {  
     //res.sendFile(path.join(__dirname+'/dist/index.html'));   
-    res.status(200).send('<h1>Please... please...</h1>');
+    res.status(200).send(path.join(__dirname+'/dist/index.html'));
 });
 
 console.log('Console listening!');
